@@ -43,7 +43,6 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().hide();
 
         viewPager = (ViewPager) findViewById(R.id.viewpager);
@@ -52,29 +51,14 @@ public class LoginActivity extends AppCompatActivity {
         tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
 
-//        UsernameEt.addTextChangedListener(new TextWatcher() {
-//            @Override
-//            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-//
-//            }
-//
-//            @Override
-//            public void onTextChanged(CharSequence s, int start, int before, int count) {
-//
-//            }
-//
-//            @Override
-//            public void afterTextChanged(Editable s) {
-//                Login = (TextView) findViewById(R.id.loginText);
-//                Login.setTextColor(Color.argb(255,255,255,255));
-//            }
-//        });
+        ListenerLogin();
+
 
     }
 
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(new LoginFragment(),  "SIGN IN");
+        adapter.addFragment(new LoginFragment(), "SIGN IN");
         adapter.addFragment(new RegisterFragment(), "SIGN UP");
         viewPager.setAdapter(adapter);
     }
@@ -110,6 +94,8 @@ public class LoginActivity extends AppCompatActivity {
 
 
     public void OnLogin(View view) {
+
+        onloginBreak:
 //        Login = (TextView) findViewById(R.id.loginText);
 //        Login.setTextColor(Color.argb(255,255,255,255));
         UsernameEt = (EditText) findViewById(R.id.et_email_login);
@@ -125,9 +111,9 @@ public class LoginActivity extends AppCompatActivity {
     }
 
 
-    public void OnReg(View view){
+    public void OnReg(View view) {
         OnRegLabel = (TextView) findViewById(R.id.onRegId);
-        OnRegLabel.setTextColor(Color.argb(255,255,255,0));
+        OnRegLabel.setTextColor(Color.argb(255, 255, 255, 0));
         UsernameReg = (EditText) findViewById(R.id.et_name_register);
         EmailReg = (EditText) findViewById(R.id.et_email_register);
         PasswReg = (EditText) findViewById(R.id.et_password_register);
@@ -139,19 +125,42 @@ public class LoginActivity extends AppCompatActivity {
         backgroudWorker.execute(type, username, email, password);
     }
 
-//    public void ListenerLogin(View view) {
-//        while (UsernameEt != null && PasswordEt != null) {
-//            UsernameEt = (EditText) findViewById(R.id.et_email_login);
-//            PasswordEt = (EditText) findViewById(R.id.et_password_login);
-//            String username = UsernameEt.getText().toString();
-//            String password = PasswordEt.getText().toString();
-//            if (username != null && password != null)
-//            {
-//                OnReg(view);
-//            }
-//        }
-//    }
+    public void ListenerLogin() {
+        while (UsernameEt != null && PasswordEt != null) {
+            System.out.println("LISTENER WHILE WORKING");
+            System.out.println("==================================");
+            UsernameEt = (EditText) findViewById(R.id.et_email_login);
+            PasswordEt = (EditText) findViewById(R.id.et_password_login);
+            String username = UsernameEt.getText().toString();
+            String password = PasswordEt.getText().toString();
+            if (username != null && password != null) {
+                System.out.println("LISTENER CHANGE COLOR LOGIN WORKING");
+                System.out.println("==================================");
+                Login = (TextView) findViewById(R.id.loginText);
+                Login.setTextColor(Color.argb(255, 255, 255, 255));
+            }
+
+            UsernameEt.addTextChangedListener(new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+                }
+
+                @Override
+                public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+                }
+
+                @Override
+                public void afterTextChanged(Editable s) {
+                    System.out.println("LISTENER AFTERTEXT WORKING");
+                    System.out.println("==================================");
+                    Login = (TextView) findViewById(R.id.loginText);
+                    Login.setTextColor(Color.argb(255, 255, 255, 255));
+                }
+            });
+        }
 
 
-
+    }
 }
