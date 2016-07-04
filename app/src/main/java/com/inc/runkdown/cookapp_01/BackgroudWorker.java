@@ -185,22 +185,10 @@ public class BackgroudWorker extends AsyncTask<String,Void,String> {
         alertDialog.show();
         if (result.equals("Success")) {
             System.out.println("==================================");
-//            Intent openThree = new Intent(context, LoginFragment.class);
-//            context.startActivity(openThree);
             System.out.println("SUCCCEEEEEESSSS");
             System.out.println("BG WORKER WORK FINE");
             System.out.println("==================================");
         }
-//        else if (result.equals("Nope")){
-//            System.out.println("==================================");
-//            System.out.println("BG WORKER DOESNT WORK NOPE");
-//            System.out.println("==================================");
-//        }
-//        else {
-//            System.out.println("==================================");
-//            System.out.println("BG WORKER DOESNT WORK");
-//            System.out.println("==================================");
-//        }
 
     }
 
