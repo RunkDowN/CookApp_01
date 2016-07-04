@@ -191,16 +191,7 @@ public class BackgroudWorker extends AsyncTask<String,Void,String> {
             System.out.println("BG WORKER WORK FINE");
             System.out.println("==================================");
         }
-//        else if (result.equals("Nope")){
-//            System.out.println("==================================");
-//            System.out.println("BG WORKER DOESNT WORK NOPE");
-//            System.out.println("==================================");
-//        }
-//        else {
-//            System.out.println("==================================");
-//            System.out.println("BG WORKER DOESNT WORK");
-//            System.out.println("==================================");
-//        }
+
 
     }
 
