@@ -52,8 +52,6 @@ public class LoginActivity extends AppCompatActivity {
         tabLayout.setupWithViewPager(viewPager);
 
         ListenerLogin();
-
-
     }
 
     private void setupViewPager(ViewPager viewPager) {
@@ -94,8 +92,6 @@ public class LoginActivity extends AppCompatActivity {
 
 
     public void OnLogin(View view) {
-
-        onloginBreak:
 //        Login = (TextView) findViewById(R.id.loginText);
 //        Login.setTextColor(Color.argb(255,255,255,255));
         UsernameEt = (EditText) findViewById(R.id.et_email_login);
@@ -140,25 +136,25 @@ public class LoginActivity extends AppCompatActivity {
                 Login.setTextColor(Color.argb(255, 255, 255, 255));
             }
 
-            UsernameEt.addTextChangedListener(new TextWatcher() {
-                @Override
-                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-                }
-
-                @Override
-                public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-                }
-
-                @Override
-                public void afterTextChanged(Editable s) {
-                    System.out.println("LISTENER AFTERTEXT WORKING");
-                    System.out.println("==================================");
-                    Login = (TextView) findViewById(R.id.loginText);
-                    Login.setTextColor(Color.argb(255, 255, 255, 255));
-                }
-            });
+//            UsernameEt.addTextChangedListener(new TextWatcher() {
+//                @Override
+//                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+//
+//                }
+//
+//                @Override
+//                public void onTextChanged(CharSequence s, int start, int before, int count) {
+//
+//                }
+//
+//                @Override
+//                public void afterTextChanged(Editable s) {
+//                    System.out.println("LISTENER AFTERTEXT WORKING");
+//                    System.out.println("==================================");
+//                    Login = (TextView) findViewById(R.id.loginText);
+//                    Login.setTextColor(Color.argb(255, 255, 255, 255));
+//                }
+//            });
         }
 
 
