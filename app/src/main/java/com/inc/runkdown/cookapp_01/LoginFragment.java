@@ -13,11 +13,14 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 /**
  * Created by RunkDowN on 30.06.16.
  */
 public class LoginFragment extends android.support.v4.app.Fragment {
-//    EditText UsernameEt;
+    EditText UsernameEt, PasswordEt;
     TextView Login, OnRegLabel;
 
     public LoginFragment(){
@@ -33,28 +36,40 @@ public class LoginFragment extends android.support.v4.app.Fragment {
     public View onCreateView (LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.login_fragment, container, false);
 
-        EditText UsernameEt = (EditText) rootView.findViewById(R.id.et_email_login);
-        UsernameEt.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+        PasswordEt = (EditText) rootView.findViewById(R.id.et_email_login);
+        UsernameEt = (EditText) rootView.findViewById(R.id.et_email_login);
+        NextColor();
+        String email = UsernameEt.getText().toString();
+        isEmailValid(email);
+        if(UsernameEt.length() > 0 && PasswordEt.length() > 0 && isEmailValid(email) == true) {
+            System.out.println("LISTENER AFTERTEXT PASSWORD WORKING");
+            System.out.println("==================================");
+            Login = (TextView) getView().findViewById(R.id.loginText);
+            Login.setTextColor(Color.argb(255, 255, 255, 255));
+        }
 
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-                System.out.println("LISTENER AFTERTEXT WORKING");
-                System.out.println("==================================");
-                Login = (TextView) getView().findViewById(R.id.loginText);
-                Login.setTextColor(Color.argb(255, 255, 255, 255));
-            }
-        });
         return rootView;
     }
+
+    public void NextColor() {
+
+    }
+
+    public static boolean isEmailValid(String email) {
+        boolean isValid = false;
+
+        String expression = "^[\\w\\.-]+@([\\w\\-]+\\.)+[A-Z]{2,4}$";
+
+        CharSequence inputStr = email;
+
+        Pattern pattern = Pattern.compile(expression, Pattern.CASE_INSENSITIVE);
+        Matcher matcher = pattern.matcher(inputStr);
+        if (matcher.matches()) {
+            isValid = true;
+        }
+        return isValid;
+    }
+
+
 }
 
