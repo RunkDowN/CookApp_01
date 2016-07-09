@@ -105,8 +105,6 @@ public class LoginActivity extends AppCompatActivity {
 
 
     public void OnReg(View view) {
-        OnRegLabel = (TextView) findViewById(R.id.onRegId);
-        OnRegLabel.setTextColor(Color.argb(255, 255, 255, 0));
         UsernameReg = (EditText) findViewById(R.id.et_name_register);
         EmailReg = (EditText) findViewById(R.id.et_email_register);
         PasswReg = (EditText) findViewById(R.id.et_password_register);
