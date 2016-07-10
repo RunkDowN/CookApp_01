@@ -36,22 +36,12 @@ public class LoginFragment extends android.support.v4.app.Fragment {
 
     @Override
     public View onCreateView (LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-         rootView = inflater.inflate(R.layout.login_fragment, container, false);
-
-        PasswordEt = (EditText) rootView.findViewById(R.id.et_email_login);
+        rootView = inflater.inflate(R.layout.login_fragment, container, false);
         UsernameEt = (EditText) rootView.findViewById(R.id.et_email_login);
+        PasswordEt = (EditText) rootView.findViewById(R.id.et_password_login);
         UsernameEt.addTextChangedListener(mTextWatcher);
         PasswordEt.addTextChangedListener(mTextWatcher);
         Login = (TextView) rootView.findViewById(R.id.loginText);
-//        String email = UsernameEt.getText().toString();
-//        if (UsernameEt.length() > 0 && PasswordEt.length() > 0 && isEmailValid(UsernameEt.getText().toString())) {
-//            System.out.println("LISTENER AFTERTEXT PASSWORD WORKING");
-//            System.out.println("==================================");
-//            Login = (TextView) getView().findViewById(R.id.loginText);
-//            Login.setTextColor(Color.argb(255, 255, 255, 255));
-//        }
-
-
 
         checkFields();
 
@@ -77,7 +67,7 @@ public class LoginFragment extends android.support.v4.app.Fragment {
             Login.setTextColor(Color.argb(255, 255, 255, 255));
         }
         else {
-            Login.setTextColor(Color.argb(255, 254, 195, 108));
+            Login.setTextColor(Color.argb(99, 255, 255, 255));
         }
 
     }
