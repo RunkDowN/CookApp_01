@@ -21,7 +21,8 @@ import java.util.regex.Pattern;
  */
 public class LoginFragment extends android.support.v4.app.Fragment {
     EditText UsernameEt, PasswordEt;
-    TextView Login, OnRegLabel;
+    TextView Login;
+    View rootView;
 
     public LoginFragment(){
 
@@ -30,27 +31,29 @@ public class LoginFragment extends android.support.v4.app.Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
     }
 
     @Override
     public View onCreateView (LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.login_fragment, container, false);
+         rootView = inflater.inflate(R.layout.login_fragment, container, false);
 
         PasswordEt = (EditText) rootView.findViewById(R.id.et_email_login);
         UsernameEt = (EditText) rootView.findViewById(R.id.et_email_login);
-        while (true) {
-            String email = UsernameEt.getText().toString();
-            System.out.println("==================================");
-            System.out.println("EMAIL onCreateView " + email);
-            System.out.println("==================================");
-//        isEmailValid(email) == true;
-            if (UsernameEt.length() > 0 && PasswordEt.length() > 0 && isEmailValid(email) == true) {
-                System.out.println("LISTENER AFTERTEXT PASSWORD WORKING");
-                System.out.println("==================================");
-                Login = (TextView) getView().findViewById(R.id.loginText);
-                Login.setTextColor(Color.argb(255, 255, 255, 255));
-            }
-        }
+        UsernameEt.addTextChangedListener(mTextWatcher);
+        PasswordEt.addTextChangedListener(mTextWatcher);
+        Login = (TextView) rootView.findViewById(R.id.loginText);
+//        String email = UsernameEt.getText().toString();
+//        if (UsernameEt.length() > 0 && PasswordEt.length() > 0 && isEmailValid(UsernameEt.getText().toString())) {
+//            System.out.println("LISTENER AFTERTEXT PASSWORD WORKING");
+//            System.out.println("==================================");
+//            Login = (TextView) getView().findViewById(R.id.loginText);
+//            Login.setTextColor(Color.argb(255, 255, 255, 255));
+//        }
+
+
+
+        checkFields();
 
         return rootView;
     }
@@ -66,6 +69,40 @@ public class LoginFragment extends android.support.v4.app.Fragment {
         }
         return isValid;
     }
+
+    public void checkFields() {
+//        PasswordEt = (EditText) rootView.findViewById(R.id.et_email_login);
+//        UsernameEt = (EditText) rootView.findViewById(R.id.et_email_login);
+//        UsernameEt.addTextChangedListener(mTextWatcher);
+//        PasswordEt.addTextChangedListener(mTextWatcher);
+//        Login = (TextView) rootView.findViewById(R.id.loginText);
+        if (UsernameEt.length() > 0 && PasswordEt.length() > 0 && isEmailValid(UsernameEt.getText().toString())) {
+            System.out.println("LISTENER AFTERTEXT PASSWORD WORKING");
+            System.out.println("==================================");
+            Login.setTextColor(Color.argb(255, 255, 255, 255));
+        }
+        else {
+//            Login.setTextColor(Color.argb(130, 130, 130, 255));
+        }
+
+    }
+
+    private TextWatcher mTextWatcher = new TextWatcher() {
+        @Override
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+        }
+
+        @Override
+        public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+        }
+
+        @Override
+        public void afterTextChanged(Editable s) {
+            checkFields();
+        }
+    };
 
 
 }
