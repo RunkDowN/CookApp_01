@@ -37,7 +37,6 @@ public class BackgroudWorker extends AsyncTask<String,Void,String> {
 
         if(type.equals("login")) {
             try {
-
                 String user_name = params [1];
                 String password = params [2];
                 System.out.println("=======USERNAME, PASSWORD ON LOGIN BACKGROUND");

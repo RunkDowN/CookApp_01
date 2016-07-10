@@ -35,7 +35,6 @@ public class LoginActivity extends AppCompatActivity {
     EditText UsernameEt, PasswordEt;
     EditText UsernameReg, EmailReg, PasswReg, SurReg;
 
-    TextView Login, OnRegLabel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

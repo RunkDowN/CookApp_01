@@ -71,18 +71,13 @@ public class LoginFragment extends android.support.v4.app.Fragment {
     }
 
     public void checkFields() {
-//        PasswordEt = (EditText) rootView.findViewById(R.id.et_email_login);
-//        UsernameEt = (EditText) rootView.findViewById(R.id.et_email_login);
-//        UsernameEt.addTextChangedListener(mTextWatcher);
-//        PasswordEt.addTextChangedListener(mTextWatcher);
-//        Login = (TextView) rootView.findViewById(R.id.loginText);
         if (UsernameEt.length() > 0 && PasswordEt.length() > 0 && isEmailValid(UsernameEt.getText().toString())) {
             System.out.println("LISTENER AFTERTEXT PASSWORD WORKING");
             System.out.println("==================================");
             Login.setTextColor(Color.argb(255, 255, 255, 255));
         }
         else {
-//            Login.setTextColor(Color.argb(130, 130, 130, 255));
+            Login.setTextColor(Color.argb(255, 254, 195, 108));
         }
 
     }
