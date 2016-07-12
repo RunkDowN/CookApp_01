@@ -15,7 +15,7 @@
         android:layout_weight="0.90">
 
         <android.support.design.widget.TextInputLayout
-            android:id="@+id/input_layout_name"
+            android:id="@+id/input_layout_name_reg"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="48dp"
@@ -34,7 +34,7 @@
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
-            android:id="@+id/input_layout_email"
+            android:id="@+id/input_layout_email_reg"
             android:layout_below="@+id/input_layout_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -53,7 +53,7 @@
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
-            android:id="@+id/input_layout_password"
+            android:id="@+id/input_layout_password_reg"
             android:layout_below="@+id/input_layout_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -94,7 +94,7 @@
                 android:id="@+id/onBackId"
                 android:textSize="20sp"
                 android:layout_marginLeft="32dp"
-                android:textColor="#99ffffff"
+                android:textColor="@color/botNav"
                 android:layout_alignParentLeft="true"/>
 
             <TextView
@@ -105,7 +105,7 @@
                 android:textSize="20sp"
                 android:layout_marginRight="32dp"
                 android:gravity="right"
-                android:textColor="#99ffffff"
+                android:textColor="@color/botNav"
                 android:layout_alignParentRight="true"/>
 
         </RelativeLayout>

@@ -7,5 +7,6 @@
     <color name="windowBackground">#646464</color>
     <color name="navigationBarColor">#000000</color>
     <color name="textInput">#646464</color>
+    <color name="botNav">#99ffffff</color>
 
 </resources>

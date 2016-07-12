@@ -23,6 +23,7 @@ public class LoginFragment extends android.support.v4.app.Fragment {
     EditText UsernameEt, PasswordEt;
     TextView Login;
     View rootView;
+    TextInputLayout inputLayoutUsername, inputLayoutPassword;
 
     public LoginFragment(){
 
@@ -37,11 +38,15 @@ public class LoginFragment extends android.support.v4.app.Fragment {
     @Override
     public View onCreateView (LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         rootView = inflater.inflate(R.layout.login_fragment, container, false);
+
+        inputLayoutUsername = (TextInputLayout) rootView.findViewById(R.id.input_layout_email);
+        inputLayoutPassword = (TextInputLayout) rootView.findViewById(R.id.input_layout_password);
         UsernameEt = (EditText) rootView.findViewById(R.id.et_email_login);
         PasswordEt = (EditText) rootView.findViewById(R.id.et_password_login);
         UsernameEt.addTextChangedListener(mTextWatcher);
         PasswordEt.addTextChangedListener(mTextWatcher);
         Login = (TextView) rootView.findViewById(R.id.loginText);
+
 
         checkFields();
 
@@ -61,21 +66,26 @@ public class LoginFragment extends android.support.v4.app.Fragment {
     }
 
     public void checkFields() {
-        if (UsernameEt.length() > 0 && PasswordEt.length() > 0 && isEmailValid(UsernameEt.getText().toString())) {
+        if (UsernameEt.length() < 0 && PasswordEt.length() < 0 && !isEmailValid(UsernameEt.getText().toString())) {
+            inputLayoutUsername.setError("Email is not correct");
+            inputLayoutPassword.setError("Password is not correct");
+            Login.setTextColor(getResources().getColor(R.color.botNav));
+
+        }
+        else if(UsernameEt.length() > 0 && PasswordEt.length() > 0 && isEmailValid(UsernameEt.getText().toString())) {
             System.out.println("LISTENER AFTERTEXT PASSWORD WORKING");
             System.out.println("==================================");
             Login.setTextColor(Color.argb(255, 255, 255, 255));
+            inputLayoutUsername.setErrorEnabled(false);
+            inputLayoutPassword.setErrorEnabled(false);
         }
-        else {
-            Login.setTextColor(Color.argb(99, 255, 255, 255));
-        }
-
     }
 
     private TextWatcher mTextWatcher = new TextWatcher() {
         @Override
         public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
+            inputLayoutUsername.setErrorEnabled(false);
+            inputLayoutPassword.setErrorEnabled(false);
         }
 
         @Override
@@ -85,6 +95,8 @@ public class LoginFragment extends android.support.v4.app.Fragment {
 
         @Override
         public void afterTextChanged(Editable s) {
+//            inputLayoutUsername.setErrorEnabled(false);
+//            inputLayoutPassword.setErrorEnabled(false);
             checkFields();
         }
     };

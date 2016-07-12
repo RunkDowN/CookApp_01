@@ -3,6 +3,7 @@ package com.inc.runkdown.cookapp_01;
 import android.app.Fragment;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -22,6 +23,7 @@ public class RegisterFragment extends android.support.v4.app.Fragment {
     EditText UsernameEt, PasswordEt, EmailEt;
     TextView Register;
     View rootView;
+    TextInputLayout inputLayoutUsername;
 
     public RegisterFragment(){
 
@@ -73,7 +75,7 @@ public class RegisterFragment extends android.support.v4.app.Fragment {
             Register.setTextColor(Color.argb(255, 255, 255, 255));
         }
         else {
-            Register.setTextColor(Color.argb(99, 254, 195, 255));
+            Register.setTextColor(getResources().getColor(R.color.botNav));
         }
 
     }
