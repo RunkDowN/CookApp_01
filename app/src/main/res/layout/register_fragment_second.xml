@@ -15,7 +15,7 @@
         android:layout_weight="0.90">
 
         <android.support.design.widget.TextInputLayout
-            android:id="@+id/input_layout_name_reg"
+            android:id="@+id/input_layout_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="48dp"
@@ -25,7 +25,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/et_name_register"
-                android:hint="Name"
+                android:hint="Username"
                 android:padding="14dp"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
@@ -34,7 +34,7 @@
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
-            android:id="@+id/input_layout_email_reg"
+            android:id="@+id/input_layout_email"
             android:layout_below="@+id/input_layout_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -53,7 +53,7 @@
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
-            android:id="@+id/input_layout_password_reg"
+            android:id="@+id/input_layout_password"
             android:layout_below="@+id/input_layout_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -77,15 +77,16 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-
         android:background="#ffFF9800"
         android:layout_gravity="center_vertical">
 
-        <RelativeLayout
+        <LinearLayout
             android:orientation="horizontal"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:gravity="center">
+            android:layout_gravity="left"
+            android:layout_marginLeft="32dp"
+            android:onClick="OnBack">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -93,22 +94,14 @@
                 android:text=" BACK"
                 android:id="@+id/onBackId"
                 android:textSize="20sp"
-                android:layout_marginLeft="32dp"
-                android:textColor="@color/botNav"
-                android:layout_alignParentLeft="true"/>
+                android:textColor="#99ffffff"
+                android:layout_gravity="center_vertical"/>
+        </LinearLayout>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/next"
-                android:id="@+id/onRegId"
-                android:textSize="20sp"
-                android:layout_marginRight="32dp"
-                android:gravity="right"
-                android:textColor="@color/botNav"
-                android:layout_alignParentRight="true"/>
 
-        </RelativeLayout>
+
+
+
 
     </LinearLayout>
 
