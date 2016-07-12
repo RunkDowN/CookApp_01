@@ -64,28 +64,32 @@ public class LoginFragment extends android.support.v4.app.Fragment {
         }
         return isValid;
     }
-
+//  inputLayoutPassword.setError("Password is not correct");
     public void checkFields() {
-        if (UsernameEt.length() < 0 && PasswordEt.length() < 0 && !isEmailValid(UsernameEt.getText().toString())) {
-            inputLayoutUsername.setError("Email is not correct");
-            inputLayoutPassword.setError("Password is not correct");
-            Login.setTextColor(getResources().getColor(R.color.botNav));
-
-        }
-        else if(UsernameEt.length() > 0 && PasswordEt.length() > 0 && isEmailValid(UsernameEt.getText().toString())) {
+        if (UsernameEt.length() > 0 && PasswordEt.length() > 0 && isEmailValid(UsernameEt.getText().toString())) {
             System.out.println("LISTENER AFTERTEXT PASSWORD WORKING");
             System.out.println("==================================");
             Login.setTextColor(Color.argb(255, 255, 255, 255));
             inputLayoutUsername.setErrorEnabled(false);
             inputLayoutPassword.setErrorEnabled(false);
         }
+        else if (!isEmailValid(UsernameEt.getText().toString()) && UsernameEt.getText().toString().isEmpty()) {
+            inputLayoutUsername.setError("Email is not correct");
+            Login.setTextColor(getResources().getColor(R.color.botNav));
+        }
+        else if (PasswordEt.getText().toString().isEmpty()) {
+            inputLayoutPassword.setError("Password is not correct");
+            Login.setTextColor(getResources().getColor(R.color.botNav));
+        }
+        else {
+            Login.setTextColor(getResources().getColor(R.color.botNav));
+        }
+
     }
 
     private TextWatcher mTextWatcher = new TextWatcher() {
         @Override
         public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-            inputLayoutUsername.setErrorEnabled(false);
-            inputLayoutPassword.setErrorEnabled(false);
         }
 
         @Override
