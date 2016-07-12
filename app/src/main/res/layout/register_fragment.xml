@@ -81,23 +81,35 @@
         android:background="#ffFF9800"
         android:layout_gravity="center_vertical">
 
-        <LinearLayout
+        <RelativeLayout
             android:orientation="horizontal"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_gravity="right"
-            android:layout_marginRight="32dp"
-            android:onClick="OnReg">
+            android:gravity="center">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="NEXT >"
+                android:text=" BACK"
+                android:id="@+id/onBackId"
+                android:textSize="20sp"
+                android:layout_marginLeft="32dp"
+                android:textColor="#99ffffff"
+                android:layout_alignParentLeft="true"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/next"
                 android:id="@+id/onRegId"
                 android:textSize="20sp"
+                android:layout_marginRight="32dp"
+                android:gravity="right"
                 android:textColor="#99ffffff"
-                android:layout_gravity="center_vertical"/>
-        </LinearLayout>
+                android:layout_alignParentRight="true"/>
+
+        </RelativeLayout>
+
     </LinearLayout>
 
 </LinearLayout>
